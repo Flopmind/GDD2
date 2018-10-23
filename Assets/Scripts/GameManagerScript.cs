@@ -36,7 +36,7 @@ public class GameManagerScript : MonoBehaviour {
         if (player)
         {
             //score display
-            GUI.Box(new Rect(10, 10, 250, 23), "Score: " + scoreInt);
+            GUI.Box(new Rect(10, 10, 250, 23), "Score: " + scoreInt + "Interval: "+interval);
         }
         //condition if we're tracking lives: player.GetComponent<PlayerScript>().Lives() == 0
         //if dead, display
@@ -57,6 +57,8 @@ public class GameManagerScript : MonoBehaviour {
             score = player.GetComponent<PlayerScript>().Score();
         }
 
+        if (((int)timer) < (int)(timer + Time.deltaTime))
+            interval /= 1.01f;
         timer += Time.deltaTime;
 		if (timer >= interval)
         {
