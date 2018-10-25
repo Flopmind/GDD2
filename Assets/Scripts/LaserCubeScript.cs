@@ -6,6 +6,8 @@ public class LaserCubeScript : Hazard {
 
     public float speed;
     public float time;
+    public float laserDelay;
+    public GameObject myLaser;
     
     private bool odd;
     private float timer;
@@ -15,7 +17,7 @@ public class LaserCubeScript : Hazard {
     {
         GameObject ground = GameObject.Find("Ground");
         if (transform.position == new Vector3(
-                ground.transform.position.x + (ground.transform.localScale.x / 2) + 1,
+                ground.transform.position.x + (ground.transform.localScale.x / 2) + 8,
                 ground.transform.position.y + 1,
                 ground.transform.position.z + (ground.transform.localScale.z / 2) + 5))
         {
@@ -26,9 +28,22 @@ public class LaserCubeScript : Hazard {
             odd = false;
         }
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer >= time)
+        {
+            Score();
+            Destroy(gameObject);
+        }
+        if (!myLaser.activeSelf && timer >= laserDelay)
+        {
+            myLaser.SetActive(true);
+        }
+    }
+
+    void FixedUpdate ()
     {
 		if (odd)
         {
@@ -37,12 +52,6 @@ public class LaserCubeScript : Hazard {
         else
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (speed * Time.deltaTime));
-        }
-        timer += Time.deltaTime;
-        if (timer >= time)
-        {
-            Score();
-            Destroy(gameObject);
         }
 	}
 
@@ -54,7 +63,7 @@ public class LaserCubeScript : Hazard {
             return new Vector3(
                 ground.transform.position.x + (ground.transform.localScale.x / 2) + 5,
                 ground.transform.position.y + 1,
-                ground.transform.position.z + (ground.transform.localScale.z / 2) + 1);
+                ground.transform.position.z + (ground.transform.localScale.z / 2) + 8);
         }
         else
         {
@@ -73,7 +82,7 @@ public class LaserCubeScript : Hazard {
         if (ground)
         {
             return new Vector3(
-                ground.transform.position.x + (ground.transform.localScale.x / 2) + 1,
+                ground.transform.position.x + (ground.transform.localScale.x / 2) + 8,
                 ground.transform.position.y + 1,
                 ground.transform.position.z + (ground.transform.localScale.z / 2) + 5);
         }

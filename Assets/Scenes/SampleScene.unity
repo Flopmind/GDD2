@@ -152,11 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114572712932291344, guid: da4dbacdf7a2772448cef8d5982bd4b1,
-        type: 2}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1530035246726066, guid: da4dbacdf7a2772448cef8d5982bd4b1, type: 2}
       propertyPath: m_IsActive
       value: 0

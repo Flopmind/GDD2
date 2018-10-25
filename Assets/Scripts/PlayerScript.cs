@@ -49,14 +49,18 @@ public class PlayerScript : MonoBehaviour {
         //    GetComponent<Rigidbody>().velocity.normalized.x * moveMag * Time.deltaTime,
         //    GetComponent<Rigidbody>().velocity.y,
         //    GetComponent<Rigidbody>().velocity.normalized.z * moveMag * Time.deltaTime);
+
+        Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveMag, 0.0f, Input.GetAxis("Vertical") * moveMag);
+        moveDirection = moveDirection.normalized;
+
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             GetComponent<Rigidbody>().velocity =
             Quaternion.Euler(0.0f, 45.0f, 0.0f) *
             new Vector3(
-                Input.GetAxis("Horizontal") * moveMag,
+                moveDirection.x * moveMag,
                 GetComponent<Rigidbody>().velocity.y,
-                Input.GetAxis("Vertical") * moveMag);
+                moveDirection.z * moveMag);
         }
         else
         {

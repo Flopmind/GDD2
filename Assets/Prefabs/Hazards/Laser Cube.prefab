@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1530035246726066
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,8 +55,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1527422118583368}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -8.514853, y: 0, z: -0.0444322}
-  m_LocalScale: {x: 0.80786115, y: 8.07861, z: 0.80786073}
+  m_LocalPosition: {x: -24.71, y: -0, z: -0.04}
+  m_LocalScale: {x: 0.80786115, y: 24.679346, z: 0.80786073}
   m_Children: []
   m_Father: {fileID: 4987467659902920}
   m_RootOrder: 0
@@ -183,8 +183,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 20
-  speed: 5
-  time: 10
+  speed: 3
+  time: 20
+  laserDelay: 2
+  myLaser: {fileID: 1527422118583368}
 --- !u!136 &136141326487177656
 CapsuleCollider:
   m_ObjectHideFlags: 1
