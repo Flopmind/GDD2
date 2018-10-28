@@ -13,9 +13,10 @@ public class GameManagerScript : MonoBehaviour {
     private float timer;
     private float score;
     private bool odd;
+    private string highScoreList;
 
 	// Use this for initialization
-	void Start ()
+	async void Start ()
     {
         timer = 0;
         odd = true;
@@ -23,7 +24,9 @@ public class GameManagerScript : MonoBehaviour {
         {
             throw new System.Exception("Something cannot every at or less than every 0 seconds. Change interval in the GameManager Prefab");
         }
-	}
+        // high score display
+        highScoreList = await HighScoreScript.GetHighScores();
+    }
 
    
 
@@ -37,6 +40,7 @@ public class GameManagerScript : MonoBehaviour {
         {
             //score display
             GUI.Box(new Rect(10, 10, 250, 23), "Score: " + scoreInt);
+            GUI.Box(new Rect(100, 10, 250, 250), highScoreList);
         }
         //condition if we're tracking lives: player.GetComponent<PlayerScript>().Lives() == 0
         //if dead, display
