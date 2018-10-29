@@ -86,7 +86,7 @@ public class FallingBombScript : Hazard {
         return Quaternion.identity;
     }
 
-    protected override void ApplySpend(int cost)
+    public override void ApplySpend(int cost)
     {
 
     }

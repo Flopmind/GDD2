@@ -8,6 +8,7 @@ public class GameManagerScript : MonoBehaviour {
     public float interval;
     public int startBudget;
     public int budgetIncrement;
+    public int lowestCost;
     //public int lives; // if we want to implement this later
 
     //private List<GameObject> activeHazards;
@@ -83,13 +84,19 @@ public class GameManagerScript : MonoBehaviour {
         timer += Time.deltaTime;
 		if (timer >= interval)
         {
+            currentBudget = budget;
             timer -= interval;
             GameObject nextHazard;
+            int price;
+            int count1 = 0;
+            int count2 = 0;
             do
             {
+                count1++;
                 int oldBudget = currentBudget;
                 do
                 {
+                    count2++;
                     nextHazard = hazardPrefabs[Random.Range(0, hazardPrefabs.Length)];
                     if (!laserUsed && nextHazard == hazardPrefabs[3])
                     {
@@ -103,27 +110,29 @@ public class GameManagerScript : MonoBehaviour {
                         }
                         while (nextHazard == hazardPrefabs[3]);
                     }
-                    currentBudget = nextHazard.GetComponent<Hazard>().Spend(currentBudget);
+                    price = nextHazard.GetComponent<Hazard>().Spend(currentBudget);
+                    currentBudget -= price;
                 }
                 while (oldBudget == currentBudget);
-            }
-            while (currentBudget > 0);
-            Vector3 nextHazardPosition;
-            Quaternion nextHazardRotation;
+                Vector3 nextHazardPosition;
+                Quaternion nextHazardRotation;
 
-            if (odd)
-            {
-                nextHazardPosition = nextHazard.GetComponent<Hazard>().GetImplementLoc1();
-                nextHazardRotation = nextHazard.GetComponent<Hazard>().GetImplementRot1();
-            }
-            else
-            {
-                nextHazardPosition = nextHazard.GetComponent<Hazard>().GetImplementLoc2();
-                nextHazardRotation = nextHazard.GetComponent<Hazard>().GetImplementRot2();
-            }
-            odd = !odd;
+                if (odd)
+                {
+                    nextHazardPosition = nextHazard.GetComponent<Hazard>().GetImplementLoc1();
+                    nextHazardRotation = nextHazard.GetComponent<Hazard>().GetImplementRot1();
+                }
+                else
+                {
+                    nextHazardPosition = nextHazard.GetComponent<Hazard>().GetImplementLoc2();
+                    nextHazardRotation = nextHazard.GetComponent<Hazard>().GetImplementRot2();
+                }
+                odd = !odd;
 
-            Instantiate(nextHazard, nextHazardPosition, nextHazardRotation);
+                GameObject haz = Instantiate(nextHazard, nextHazardPosition, nextHazardRotation);
+                haz.GetComponent<Hazard>().ApplySpend(price);
+            }
+            while (currentBudget > lowestCost);
             laserUsed = true;
             budget += budgetIncrement;
         }

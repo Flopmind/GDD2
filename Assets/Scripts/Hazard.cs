@@ -9,7 +9,7 @@ public abstract class Hazard : MonoBehaviour {
     public abstract Vector3 GetImplementLoc2();
     public abstract Quaternion GetImplementRot1();
     public abstract Quaternion GetImplementRot2();
-    protected abstract void ApplySpend(int cost);
+    public abstract void ApplySpend(int cost);
     public int Spend(int budget)
     {
         if (costs.Length == 0)
@@ -28,9 +28,7 @@ public abstract class Hazard : MonoBehaviour {
             }
         }
 
-        ApplySpend(costs[choice]);
-
-        return (budget - costs[choice]);
+        return costs[choice];
     }
 
     public void Score()

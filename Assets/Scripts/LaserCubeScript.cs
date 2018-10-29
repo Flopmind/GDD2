@@ -103,7 +103,7 @@ public class LaserCubeScript : Hazard {
         return Quaternion.AngleAxis(-90, new Vector3(0, 1, 0));
     }
 
-    protected override void ApplySpend(int cost)
+    public override void ApplySpend(int cost)
     {
         for (int i = 0; i < costs.Length; i++)
         {

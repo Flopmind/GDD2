@@ -6,9 +6,12 @@ public class EnemyScript : Hazard {
     public float pursuitMag;
     public float timer;
 
+    [SerializeField]
     private float moveMag;
     private bool hazardImmune = false;
     private GameObject player;
+
+
 
     // Use this for initialization
     void Start()
@@ -91,12 +94,14 @@ public class EnemyScript : Hazard {
         return Quaternion.identity;
     }
 
-    protected override void ApplySpend(int cost)
+    public override void ApplySpend(int cost)
     {
+        print("meh");
         for (int i = 0; i < costs.Length; i++)
         {
             if (cost == costs[i])
             {
+                print(cost);
                 moveMag = moveMags[i];
                 if (i == costs.Length - 1)
                 {
@@ -104,6 +109,5 @@ public class EnemyScript : Hazard {
                 }
             }
         }
-        print("meh");
     }
 }

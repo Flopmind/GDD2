@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class BombScript : Hazard {
 
@@ -42,12 +43,29 @@ public class BombScript : Hazard {
     public override Vector3 GetImplementLoc1()
     {
         GameObject ground = GameObject.Find("Ground");
+        Vector3 myVec;
+        GameObject[] bombs = GameObject.FindGameObjectsWithTag("Bomb");
+        bool tooClose = true;
+        int count = 0;
         if (ground)
         {
-            return new Vector3(
+            do
+            {
+                count++;
+                myVec = new Vector3(
                 Random.Range(ground.transform.position.x - (ground.transform.localScale.x / 2), ground.transform.position.x + (ground.transform.localScale.x / 2)),
                 1.5f,
                 Random.Range(ground.transform.position.z - (ground.transform.localScale.z / 2), ground.transform.position.z + (ground.transform.localScale.z / 2)));
+                foreach (GameObject bomb in bombs)
+                {
+                    if ((myVec - bomb.transform.position).magnitude < 4)
+                    {
+                        tooClose = false;
+                    }
+                }
+            }
+            while (tooClose && count < 20);
+            return myVec;
         }
         else
         {
@@ -78,7 +96,7 @@ public class BombScript : Hazard {
         }
     }
 
-    protected override void ApplySpend(int cost)
+    public override void ApplySpend(int cost)
     {
 
     }

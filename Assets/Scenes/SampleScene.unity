@@ -535,7 +535,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000278024368502, guid: 095cab68a1a3a984aa2c16ae06a27f9e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.44
+      value: 1.9669
       objectReference: {fileID: 0}
     - target: {fileID: 4000278024368502, guid: 095cab68a1a3a984aa2c16ae06a27f9e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -664,6 +664,35 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1375634190}
+    - target: {fileID: 114309330970094236, guid: 8a6e8c8f01621404f922d5c1de70bb50,
+        type: 2}
+      propertyPath: hazardPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1530035246726066, guid: da4dbacdf7a2772448cef8d5982bd4b1,
+        type: 2}
+    - target: {fileID: 114309330970094236, guid: 8a6e8c8f01621404f922d5c1de70bb50,
+        type: 2}
+      propertyPath: hazardPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1437482379864166, guid: 70bfb291555cead4298d2f5f03f852f4,
+        type: 2}
+    - target: {fileID: 114309330970094236, guid: 8a6e8c8f01621404f922d5c1de70bb50,
+        type: 2}
+      propertyPath: hazardPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1961245040807388, guid: 095cab68a1a3a984aa2c16ae06a27f9e,
+        type: 2}
+    - target: {fileID: 114309330970094236, guid: 8a6e8c8f01621404f922d5c1de70bb50,
+        type: 2}
+      propertyPath: hazardPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1590534186573924, guid: ce4469894a3deee43916637d11e60a2d,
+        type: 2}
+    - target: {fileID: 114309330970094236, guid: 8a6e8c8f01621404f922d5c1de70bb50,
+        type: 2}
+      propertyPath: startBudget
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a6e8c8f01621404f922d5c1de70bb50, type: 2}
   m_IsPrefabAsset: 0

@@ -120,6 +120,7 @@ MonoBehaviour:
   - 210
   pursuitMag: 10
   timer: 10
+  moveMag: 0
 --- !u!136 &136773671675135862
 CapsuleCollider:
   m_ObjectHideFlags: 1

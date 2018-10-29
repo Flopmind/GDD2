@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 199405077370696834}
   - component: {fileID: 198042404144544884}
   - component: {fileID: 135151859482626320}
-  - component: {fileID: 114320900165479674}
+  - component: {fileID: 114144006477197854}
   m_Layer: 0
   m_Name: gameBomb
   m_TagString: Untagged
@@ -40,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1961245040807388}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.04, y: 1.44, z: 5.35}
-  m_LocalScale: {x: 1.4739234, y: 1.4739234, z: 1.4739234}
+  m_LocalPosition: {x: 8.04, y: 1.9669, z: 5.35}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -103,7 +103,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114320900165479674
+--- !u!114 &114144006477197854
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,15 +111,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1961245040807388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 006f243ea2202b9499b801ecc9321bd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e66f9346df419842b2c399873f86eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   score: 10
-  costs: 01000000
-  fallHeight: 50
-  initialScale: 1
-  finalScale: 10
-  goneTime: 2
+  costs: 02000000
+  timerLimit: 5
+  deathRange: 5
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 1, g: 0, b: 0, a: 0}
   explosion: {fileID: 1013871538952496, guid: bc6c791da37419347bdb855ed545b365, type: 2}
 --- !u!135 &135151859482626320
 SphereCollider:
