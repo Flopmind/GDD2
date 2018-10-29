@@ -647,7 +647,7 @@ Prefab:
     - target: {fileID: 114309330970094236, guid: 8a6e8c8f01621404f922d5c1de70bb50,
         type: 2}
       propertyPath: interval
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114309330970094236, guid: 8a6e8c8f01621404f922d5c1de70bb50,
         type: 2}
