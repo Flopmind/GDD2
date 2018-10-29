@@ -20,7 +20,7 @@ public class GameManagerScript : MonoBehaviour {
     private bool submit = false;
     private bool submitted = false;
     // Use this for initialization
-    async void Start ()
+    void Start()
     {
         timer = 0;
         odd = true;
@@ -28,7 +28,6 @@ public class GameManagerScript : MonoBehaviour {
         {
             throw new System.Exception("Something cannot every at or less than every 0 seconds. Change interval in the GameManager Prefab");
         }
-        highScoreList = await HighScoreScript.GetHighScores();
         budget = startBudget;
         currentBudget = budget;
     }
