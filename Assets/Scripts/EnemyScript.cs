@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemyScript : Hazard {
 
-    public float moveMag;
+    public float[] moveMags;//150
     public float pursuitMag;
     public float timer;
 
+    private float moveMag;
+    private bool hazardImmune = false;
     private GameObject player;
 
     // Use this for initialization
@@ -48,7 +50,7 @@ public class EnemyScript : Hazard {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Collider>().CompareTag("Hazard"))
+        if (!hazardImmune && other.GetComponent<Collider>().CompareTag("Hazard"))
         {
             Destroy(gameObject);
         }
@@ -93,6 +95,16 @@ public class EnemyScript : Hazard {
 
     protected override void ApplySpend(int cost)
     {
-        
+        for (int i = 0; i < costs.Length; i++)
+        {
+            if (cost == costs[i])
+            {
+                moveMag = moveMags[i];
+                if (i == costs.Length - 1)
+                {
+                    hazardImmune = true;
+                }
+            }
+        }
     }
 }

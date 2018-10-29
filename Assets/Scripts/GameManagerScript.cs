@@ -8,25 +8,20 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject player;
     public float interval;
     public int startBudget;
-    public int lives; // if we want to implement this later
+    //public int lives; // if we want to implement this later
 
     //private List<GameObject> activeHazards;
     private float timer;
     private float score;
     private bool odd;
-<<<<<<< HEAD
-    private string highScoreList;
+    private string highScoreList = "Loading high scores";
     private int budget;
     private int currentBudget;
-=======
     private string playersName = "";
     private bool submit = false;
     private bool submitted = false;
-    private string highScoreList = "Loading high scores";
->>>>>>> 4e27592af1c3d62f0b2e10a0baa52d2ee1175ce0
-
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    async void Start ()
     {
         timer = 0;
         odd = true;
@@ -34,13 +29,9 @@ public class GameManagerScript : MonoBehaviour {
         {
             throw new System.Exception("Something cannot every at or less than every 0 seconds. Change interval in the GameManager Prefab");
         }
-<<<<<<< HEAD
-        // high score display
         highScoreList = await HighScoreScript.GetHighScores();
         budget = startBudget;
         currentBudget = budget;
-=======
->>>>>>> 4e27592af1c3d62f0b2e10a0baa52d2ee1175ce0
     }
 
    

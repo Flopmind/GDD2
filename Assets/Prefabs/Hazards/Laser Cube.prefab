@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4870942320220010
 Transform:
   m_ObjectHideFlags: 1
@@ -183,7 +183,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 20
-  speed: 3
+  costs: 020000000500000007000000
+  speeds:
+  - 3
+  - 5
+  - 7
   time: 20
   laserDelay: 2
   myLaser: {fileID: 1527422118583368}
