@@ -20,6 +20,6 @@ public class ControlsScript : MonoBehaviour {
         area.height *= 0.75f;
         GUIStyle style = GUI.skin.box;
         style.fontSize = 50;
-        GUI.Box(area, "Controls go here\r\nDon't forget to do controls", style);
+        GUI.Box(area, "Controls:\n\nJump: Spacebar\nDouble Jump: Spacebar (while in air)\nMovement: WASD (up/left/down/right) or arrow keys", style);
     }
 }

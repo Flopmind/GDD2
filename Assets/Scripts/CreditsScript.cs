@@ -20,6 +20,6 @@ public class CreditsScript : MonoBehaviour {
         area.height *=0.75f;
         GUIStyle style = GUI.skin.box;
         style.fontSize = 50;
-        GUI.Box(area, "Credits go here\r\nDon't forget to do credits", style);
+        GUI.Box(area, "Team To Be Determined\n\nAndy Ong\nMichael Pasquarello\nMichael Schek\nRyan Volz", style);
     }
 }
