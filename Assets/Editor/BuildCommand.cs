@@ -1,16 +1,15 @@
 ﻿using UnityEditor;
-using UnityEngine;
 using System;
 using System.Collections.Generic;
 // https://gist.github.com/michaelbartnett/5652076
-    /// <summary>
-    /// Represents a functional tuple that can be used to store
-    /// two values of different types inside one object.
-    /// </summary>
-    /// <typeparam name="T1">The type of the first element</typeparam>
-    /// <typeparam name="T2">The type of the second element</typeparam>
-    /// <typeparam name="T3">The type of the third element</typeparam>
-    public sealed class Tuple<T1, T2, T3>
+/// <summary>
+/// Represents a functional tuple that can be used to store
+/// two values of different types inside one object.
+/// </summary>
+/// <typeparam name="T1">The type of the first element</typeparam>
+/// <typeparam name="T2">The type of the second element</typeparam>
+/// <typeparam name="T3">The type of the third element</typeparam>
+public sealed class Tuple<T1, T2, T3>
     {
         private readonly T1 item1;
         private readonly T2 item2;

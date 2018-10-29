@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour {
 
@@ -64,6 +63,10 @@ public class GameManagerScript : MonoBehaviour {
             else
             {
                 GUI.Box(new Rect(10, 55, 250, 250), highScoreList);
+                if(GUI.Button(new Rect(10, 55+250, 100, 25), "Restart"))
+                {
+                    SceneManager.LoadScene("Menu");
+                }
             }
         }
     }
