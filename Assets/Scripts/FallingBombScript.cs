@@ -7,12 +7,15 @@ public class FallingBombScript : Hazard {
     public float fallHeight;
     public float initialScale;
     public float finalScale;
+    public float goneTime;
     //Explosion prefab holder
     public GameObject explosion;
 
     private GameObject player;
     private GameObject ground;
     private float distancePercent;
+    private float goneTimer;
+    private bool gone;
 
     // Use this for initialization
     void Start()
@@ -21,6 +24,8 @@ public class FallingBombScript : Hazard {
         player = GameObject.Find("Player");
         ground = GameObject.Find("Ground");
         distancePercent = 0;
+        goneTimer = 0.0f;
+        gone = false;
     }
 
     // Update is called once per frame
@@ -29,6 +34,15 @@ public class FallingBombScript : Hazard {
         distancePercent = 1 / ((transform.position - ground.transform.position).magnitude / fallHeight);
         float scale = (((finalScale - initialScale) * distancePercent) / finalScale);
         transform.localScale = new Vector3(scale, scale, scale);
+
+        if (gone)
+        {
+            goneTimer += Time.deltaTime;
+            if (goneTimer >= goneTime)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,7 +51,9 @@ public class FallingBombScript : Hazard {
         {
             GameObject explosionSpawn = Instantiate(explosion, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
             Score();
-            Destroy(gameObject);
+            gone = true;
+            goneTimer = 0.0f;
+            GetComponent<MeshRenderer>().enabled = false;
         }
     }
 
@@ -70,5 +86,10 @@ public class FallingBombScript : Hazard {
     public override Quaternion GetImplementRot2()
     {
         return Quaternion.identity;
+    }
+
+    protected override void ApplySpend(int cost)
+    {
+
     }
 }

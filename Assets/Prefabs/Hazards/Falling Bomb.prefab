@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1590534186573924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.764308, y: 17.79, z: -0.03}
+  m_LocalPosition: {x: 4.98, y: 17.79, z: -0.03}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   fallHeight: 50
   initialScale: 1
   finalScale: 10
+  goneTime: 2
   explosion: {fileID: 1013871538952496, guid: bc6c791da37419347bdb855ed545b365, type: 2}
 --- !u!135 &135752636437502636
 SphereCollider:
@@ -127,5 +128,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}

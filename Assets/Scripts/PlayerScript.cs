@@ -14,7 +14,6 @@ public class PlayerScript : MonoBehaviour {
 	void Start ()
     {
         jumpsLeft = 2;
-        //lives = 1;
 	}
 	
 	// Update is called once per frame
@@ -44,6 +43,7 @@ public class PlayerScript : MonoBehaviour {
             GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, jumpMag, GetComponent<Rigidbody>().velocity.z);
             jumpsLeft--;
         }
+
         if (gameObject.transform.position.y < -4f) Destroy(gameObject);
 	}
 
@@ -76,7 +76,6 @@ public class PlayerScript : MonoBehaviour {
         if (other.GetComponent<Collider>().CompareTag("Hazard") || other.GetComponent<Collider>().CompareTag("Enemy"))
         {
             Destroy(gameObject);
-            //lives = 0;
             //Application.LoadLevel(Application.loadedLevel); RESETS SCENE, USE FOR GAMEOVER SCENARIO(?)
         }
     }

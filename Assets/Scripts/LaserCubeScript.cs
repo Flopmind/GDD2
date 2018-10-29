@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class LaserCubeScript : Hazard {
 
-    public float speed;
+    public float[] speeds;
     public float time;
     public float laserDelay;
     public GameObject myLaser;
     
     private bool odd;
     private float timer;
+    private float mySpeed;
 
 	// Use this for initialization
 	void Start ()
@@ -26,6 +27,11 @@ public class LaserCubeScript : Hazard {
         else
         {
             odd = false;
+        }
+
+        if (speeds.Length != costs.Length)
+        {
+            throw new System.IndexOutOfRangeException("Laser Cube prefab costs and speeds mismatched");
         }
 	}
 
@@ -47,11 +53,11 @@ public class LaserCubeScript : Hazard {
     {
 		if (odd)
         {
-            transform.position = new Vector3(transform.position.x - (speed * Time.deltaTime), transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x - (mySpeed * Time.deltaTime), transform.position.y, transform.position.z);
         }
         else
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (speed * Time.deltaTime));
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (mySpeed * Time.deltaTime));
         }
 	}
 
@@ -97,5 +103,16 @@ public class LaserCubeScript : Hazard {
         // testing to see if it returns the correct angle
         print(Quaternion.AngleAxis(-90, new Vector3(0, 1, 0)));
         return Quaternion.AngleAxis(-90, new Vector3(0, 1, 0));
+    }
+
+    protected override void ApplySpend(int cost)
+    {
+        for (int i = 0; i < costs.Length; i++)
+        {
+            if (cost == costs[i])
+            {
+                mySpeed = speeds[i];
+            }
+        }
     }
 }

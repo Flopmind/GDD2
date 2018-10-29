@@ -90,4 +90,9 @@ public class EnemyScript : Hazard {
     {
         return Quaternion.identity;
     }
+
+    protected override void ApplySpend(int cost)
+    {
+        
+    }
 }

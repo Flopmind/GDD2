@@ -7,6 +7,7 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject[] hazardPrefabs;
     public GameObject player;
     public float interval;
+    public int startBudget;
     public int lives; // if we want to implement this later
 
     //private List<GameObject> activeHazards;
@@ -14,6 +15,8 @@ public class GameManagerScript : MonoBehaviour {
     private float score;
     private bool odd;
     private string highScoreList;
+    private int budget;
+    private int currentBudget;
 
 	// Use this for initialization
 	async void Start ()
@@ -26,6 +29,8 @@ public class GameManagerScript : MonoBehaviour {
         }
         // high score display
         highScoreList = await HighScoreScript.GetHighScores();
+        budget = startBudget;
+        currentBudget = budget;
     }
 
    
@@ -65,7 +70,18 @@ public class GameManagerScript : MonoBehaviour {
 		if (timer >= interval)
         {
             timer -= interval;
-            GameObject nextHazard = hazardPrefabs[Random.Range(0, hazardPrefabs.Length)];
+            GameObject nextHazard;
+            do
+            {
+                int oldBudget = currentBudget;
+                do
+                {
+                    nextHazard = hazardPrefabs[Random.Range(0, hazardPrefabs.Length)];
+                    currentBudget = nextHazard.GetComponent<Hazard>().Spend(currentBudget);
+                }
+                while (oldBudget == currentBudget);
+            }
+            while (currentBudget > 0);
             Vector3 nextHazardPosition;
             Quaternion nextHazardRotation;
 

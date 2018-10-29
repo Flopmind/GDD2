@@ -79,4 +79,9 @@ public class BombScript : Hazard {
             Destroy(obj);
         }
     }
+
+    protected override void ApplySpend(int cost)
+    {
+
+    }
 }
