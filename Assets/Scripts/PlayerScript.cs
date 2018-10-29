@@ -6,11 +6,8 @@ public class PlayerScript : MonoBehaviour {
 
     public float moveMag;
     public float jumpMag;
-
-
-    //private Vector3 myVelocity;
+    
     private int jumpsLeft;
-    //private int lives;
     private float score;
 
 	// Use this for initialization
@@ -23,32 +20,7 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //print("Horizontal: " + Input.GetAxis("Horizontal"));
-        //print("Vertical: " + Input.GetAxis("Vertical"));
         score += Time.deltaTime;
-        //transform.rotation = Quaternion.identity;
-        //GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
-
-        //if (Input.GetAxis("Horizontal") > 0)
-        //{
-        //    GetComponent<Rigidbody>().velocity += new Vector3(1f, 0.0f, -1f);
-        //}
-        //if (Input.GetAxis("Horizontal") < 0)
-        //{
-        //    GetComponent<Rigidbody>().velocity += new Vector3(-1f, 0.0f, 1f);
-        //}
-        //if (Input.GetAxis("Vertical") > 0)
-        //{
-        //    GetComponent<Rigidbody>().velocity += new Vector3(1f, 0.0f, 1f);
-        //}
-        //if (Input.GetAxis("Vertical") < 0)
-        //{
-        //    GetComponent<Rigidbody>().velocity += new Vector3(-1f, 0.0f, -1f);
-        //}
-        //GetComponent<Rigidbody>().velocity = new Vector3(
-        //    GetComponent<Rigidbody>().velocity.normalized.x * moveMag * Time.deltaTime,
-        //    GetComponent<Rigidbody>().velocity.y,
-        //    GetComponent<Rigidbody>().velocity.normalized.z * moveMag * Time.deltaTime);
 
         Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveMag, 0.0f, Input.GetAxis("Vertical") * moveMag);
         moveDirection = moveDirection.normalized;
@@ -80,12 +52,6 @@ public class PlayerScript : MonoBehaviour {
     {
         return score;
     }
-
-    //accessing lives of the player
-    //public float Lives()
-    //{
-        //return lives;
-    //}
 
     public void AddScore(int deltaScore)
     {
