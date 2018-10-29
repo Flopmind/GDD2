@@ -693,6 +693,11 @@ Prefab:
       propertyPath: startBudget
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114309330970094236, guid: 8a6e8c8f01621404f922d5c1de70bb50,
+        type: 2}
+      propertyPath: lowestCost
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a6e8c8f01621404f922d5c1de70bb50, type: 2}
   m_IsPrefabAsset: 0

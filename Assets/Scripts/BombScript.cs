@@ -58,7 +58,7 @@ public class BombScript : Hazard {
                 Random.Range(ground.transform.position.z - (ground.transform.localScale.z / 2), ground.transform.position.z + (ground.transform.localScale.z / 2)));
                 foreach (GameObject bomb in bombs)
                 {
-                    if ((myVec - bomb.transform.position).magnitude < 4)
+                    if ((myVec - bomb.transform.position).magnitude > 4)
                     {
                         tooClose = false;
                     }
