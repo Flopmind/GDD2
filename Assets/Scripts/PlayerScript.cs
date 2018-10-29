@@ -80,10 +80,4 @@ public class PlayerScript : MonoBehaviour {
             //Application.LoadLevel(Application.loadedLevel); RESETS SCENE, USE FOR GAMEOVER SCENARIO(?)
         }
     }
-
-    private async void OnDestroy()
-    {
-        Debug.Log("Destroying");
-        await HighScoreScript.UploadHighScore("ingame", (int)score);
-    }
 }

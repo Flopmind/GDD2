@@ -13,10 +13,13 @@ public class GameManagerScript : MonoBehaviour {
     private float timer;
     private float score;
     private bool odd;
-    private string highScoreList;
+    private string playersName = "";
+    private bool submit = false;
+    private bool submitted = false;
+    private string highScoreList = "Loading high scores";
 
 	// Use this for initialization
-	async void Start ()
+	void Start ()
     {
         timer = 0;
         odd = true;
@@ -24,8 +27,6 @@ public class GameManagerScript : MonoBehaviour {
         {
             throw new System.Exception("Something cannot every at or less than every 0 seconds. Change interval in the GameManager Prefab");
         }
-        // high score display
-        highScoreList = await HighScoreScript.GetHighScores();
     }
 
    
@@ -40,7 +41,6 @@ public class GameManagerScript : MonoBehaviour {
         {
             //score display
             GUI.Box(new Rect(10, 10, 250, 23), "Score: " + scoreInt);
-            GUI.Box(new Rect(100, 10, 250, 250), highScoreList);
         }
         //condition if we're tracking lives: player.GetComponent<PlayerScript>().Lives() == 0
         //if dead, display
@@ -49,12 +49,22 @@ public class GameManagerScript : MonoBehaviour {
             GUI.Box(new Rect(10, 10, 250, 23), "Game Over!");
 
             //final score
-            GUI.Box(new Rect(10, 31, 250, 23), "Final Score: " + scoreInt) ;
+            GUI.Box(new Rect(10, 31, 250, 23), "Final Score: " + scoreInt);
+            if(!submit && !submitted)
+            {
+                GUI.Box(new Rect(10, 55, 90, 25), "Your Name: ");
+                playersName =GUI.TextField(new Rect(100, 55, 100, 25), playersName, 25);
+                submit = GUI.Button(new Rect(225, 55, 75, 25), "Submit");
+            }
+            else
+            {
+                GUI.Box(new Rect(10, 55, 250, 250), highScoreList);
+            }
         }
     }
 
     // Update is called once per frame
-    void Update ()
+    async void Update ()
     {
         if (player)
         {
@@ -83,5 +93,17 @@ public class GameManagerScript : MonoBehaviour {
 
             Instantiate(nextHazard, nextHazardPosition, nextHazardRotation);
         }
-	}
+        if (submit)
+        {
+            submit = false; // never submit again
+            // Upload the high score
+            await HighScoreScript.UploadHighScore(playersName, (int)score);
+
+            // Get high score display
+            highScoreList = await HighScoreScript.GetHighScores();
+            // Set as submitted
+            submitted = true;
+        }
+
+    }
 }
