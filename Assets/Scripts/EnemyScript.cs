@@ -67,7 +67,7 @@ public class EnemyScript : Hazard {
                 1.5f,
                 Random.Range(ground.transform.position.z - (ground.transform.localScale.z / 2), ground.transform.position.z + (ground.transform.localScale.z / 2)));
             }
-            while ((myVec - GameObject.Find("Player").transform.position).magnitude < 4);
+            while (GameObject.Find("Player") != null && (myVec - GameObject.Find("Player").transform.position).magnitude < 4);
             return myVec;
         }
         else
