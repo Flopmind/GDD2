@@ -52,10 +52,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hazardPrefabs:
-  - {fileID: 1154027992691846, guid: f8c7f676979318642b7083f942378375, type: 2}
+  - {fileID: 1961245040807388, guid: 095cab68a1a3a984aa2c16ae06a27f9e, type: 2}
   - {fileID: 1437482379864166, guid: 70bfb291555cead4298d2f5f03f852f4, type: 2}
   - {fileID: 1590534186573924, guid: ce4469894a3deee43916637d11e60a2d, type: 2}
   - {fileID: 1530035246726066, guid: da4dbacdf7a2772448cef8d5982bd4b1, type: 2}
-  player: {fileID: 1045181447529508, guid: 215531bae02bd8a4f82b99aa1453b95c, type: 2}
+  player: {fileID: 0}
   interval: 4
-  lives: 0
+  startBudget: 1
+  budgetIncrement: 1

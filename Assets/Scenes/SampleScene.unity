@@ -453,6 +453,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114600785369452816, guid: f8c7f676979318642b7083f942378375,
+        type: 2}
+      propertyPath: costs.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c7f676979318642b7083f942378375, type: 2}
   m_IsPrefabAsset: 0
@@ -503,6 +508,16 @@ Prefab:
     - target: {fileID: 1437482379864166, guid: 70bfb291555cead4298d2f5f03f852f4, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639108298724608, guid: 70bfb291555cead4298d2f5f03f852f4,
+        type: 2}
+      propertyPath: costs.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639108298724608, guid: 70bfb291555cead4298d2f5f03f852f4,
+        type: 2}
+      propertyPath: costs.Array.data[1]
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70bfb291555cead4298d2f5f03f852f4, type: 2}
@@ -646,20 +661,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114309330970094236, guid: 8a6e8c8f01621404f922d5c1de70bb50,
         type: 2}
-      propertyPath: interval
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114309330970094236, guid: 8a6e8c8f01621404f922d5c1de70bb50,
-        type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 1375634190}
-    - target: {fileID: 114309330970094236, guid: 8a6e8c8f01621404f922d5c1de70bb50,
-        type: 2}
-      propertyPath: hazardPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 1961245040807388, guid: 095cab68a1a3a984aa2c16ae06a27f9e,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a6e8c8f01621404f922d5c1de70bb50, type: 2}
   m_IsPrefabAsset: 0
@@ -709,21 +713,3 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce4469894a3deee43916637d11e60a2d, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &2132394491 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1154027992691846, guid: f8c7f676979318642b7083f942378375,
-    type: 2}
-  m_PrefabInternal: {fileID: 883333721}
---- !u!114 &2132394498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2132394491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29478f322182c23418b2e70142ca96a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0
-  explosionGrowthRate: 0

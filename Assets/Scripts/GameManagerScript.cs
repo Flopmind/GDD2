@@ -7,6 +7,7 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject player;
     public float interval;
     public int startBudget;
+    public int budgetIncrement;
     //public int lives; // if we want to implement this later
 
     //private List<GameObject> activeHazards;
@@ -19,6 +20,7 @@ public class GameManagerScript : MonoBehaviour {
     private string playersName = "";
     private bool submit = false;
     private bool submitted = false;
+    private bool laserUsed = false;
     // Use this for initialization
     void Start()
     {
@@ -89,6 +91,18 @@ public class GameManagerScript : MonoBehaviour {
                 do
                 {
                     nextHazard = hazardPrefabs[Random.Range(0, hazardPrefabs.Length)];
+                    if (!laserUsed && nextHazard == hazardPrefabs[3])
+                    {
+                        laserUsed = true;
+                    }
+                    else if (nextHazard == hazardPrefabs[3])
+                    {
+                        do
+                        {
+                            nextHazard = hazardPrefabs[Random.Range(0, hazardPrefabs.Length)];
+                        }
+                        while (nextHazard == hazardPrefabs[3]);
+                    }
                     currentBudget = nextHazard.GetComponent<Hazard>().Spend(currentBudget);
                 }
                 while (oldBudget == currentBudget);
@@ -110,7 +124,10 @@ public class GameManagerScript : MonoBehaviour {
             odd = !odd;
 
             Instantiate(nextHazard, nextHazardPosition, nextHazardRotation);
+            laserUsed = true;
+            budget += budgetIncrement;
         }
+
         if (submit)
         {
             submit = false; // never submit again

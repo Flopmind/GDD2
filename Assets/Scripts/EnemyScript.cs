@@ -104,5 +104,6 @@ public class EnemyScript : Hazard {
                 }
             }
         }
+        print("meh");
     }
 }
