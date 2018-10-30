@@ -63,7 +63,7 @@ public class GameManagerScript : MonoBehaviour {
             {
                 GUI.Box(new Rect(10, 55, 90, 25), "Your Name: ", style);
                 playersName =GUI.TextField(new Rect(100, 55, 100, 25), playersName, 25, style);
-                submit = GUI.Button(new Rect(225, 55, 75, 25), "Submit", style);
+                submit = GUI.Button(new Rect(225, 55, 75, 25), "Submit", buttonStyle);
             }
             else
             {
