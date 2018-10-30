@@ -136,7 +136,7 @@ public class GameManagerScript : MonoBehaviour {
                 haz.GetComponent<Hazard>().ApplySpend(price);
             }
             while (currentBudget > lowestCost);
-            laserUsed = true;
+            laserUsed = false;
             budget += budgetIncrement;
         }
 

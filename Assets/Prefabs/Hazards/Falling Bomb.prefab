@@ -117,7 +117,7 @@ MonoBehaviour:
   fallHeight: 50
   initialScale: 1
   finalScale: 10
-  goneTime: 2
+  goneTime: 20
   explosion: {fileID: 1013871538952496, guid: bc6c791da37419347bdb855ed545b365, type: 2}
 --- !u!135 &135752636437502636
 SphereCollider:
