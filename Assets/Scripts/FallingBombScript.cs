@@ -29,8 +29,8 @@ public class FallingBombScript : Hazard {
     // Update is called once per frame
     void Update()
     {
-        distancePercent = 1 / ((transform.position - ground.transform.position).magnitude / fallHeight);
-        float scale = (((finalScale - initialScale) * distancePercent) / finalScale);
+        distancePercent = 1 - (Mathf.Abs(transform.position.y - ground.transform.position.y) / fallHeight);
+        float scale = (((finalScale - initialScale) * distancePercent) + initialScale); 
         transform.localScale = new Vector3(scale, scale, scale);
 
         if (gone)
