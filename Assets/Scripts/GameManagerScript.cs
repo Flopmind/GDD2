@@ -42,30 +42,33 @@ public class GameManagerScript : MonoBehaviour {
     {
         //type casting score to int
         int scoreInt = (int)score;
-
+        GUIStyle style = GUI.skin.box;
+        style.fontSize = 14;
+        GUIStyle buttonStyle = GUI.skin.button;
+        style.fontSize = 14;
         if (player)
         {
             //score display
-            GUI.Box(new Rect(10, 10, 250, 23), "Score: " + scoreInt);
+            GUI.Box(new Rect(10, 10, 250, 23), "Score: " + scoreInt, style);
         }
         //condition if we're tracking lives: player.GetComponent<PlayerScript>().Lives() == 0
         //if dead, display
         else if (player == null)
         {
-            GUI.Box(new Rect(10, 10, 250, 23), "Game Over!");
+            GUI.Box(new Rect(10, 10, 250, 23), "Game Over!", style);
 
             //final score
-            GUI.Box(new Rect(10, 31, 250, 23), "Final Score: " + scoreInt);
+            GUI.Box(new Rect(10, 31, 250, 23), "Final Score: " + scoreInt, style);
             if(!submit && !submitted)
             {
-                GUI.Box(new Rect(10, 55, 90, 25), "Your Name: ");
-                playersName =GUI.TextField(new Rect(100, 55, 100, 25), playersName, 25);
-                submit = GUI.Button(new Rect(225, 55, 75, 25), "Submit");
+                GUI.Box(new Rect(10, 55, 90, 25), "Your Name: ", style);
+                playersName =GUI.TextField(new Rect(100, 55, 100, 25), playersName, 25, style);
+                submit = GUI.Button(new Rect(225, 55, 75, 25), "Submit", style);
             }
             else
             {
-                GUI.Box(new Rect(10, 55, 250, 250), highScoreList);
-                if(GUI.Button(new Rect(10, 55+250, 100, 25), "Restart"))
+                GUI.Box(new Rect(10, 55, 250, 250), highScoreList, style);
+                if(GUI.Button(new Rect(10, 55+250, 100, 25), "Restart", buttonStyle))
                 {
                     SceneManager.LoadScene("Menu");
                 }
