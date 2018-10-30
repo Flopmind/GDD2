@@ -15,6 +15,6 @@ public class CreditsButton : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        SceneManager.LoadScene("ControlsScene");
+        SceneManager.LoadScene("CreditsScene");
     }
 }
