@@ -569,16 +569,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114639108298724608, guid: 70bfb291555cead4298d2f5f03f852f4,
-        type: 2}
-      propertyPath: costs.Array.data[0]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639108298724608, guid: 70bfb291555cead4298d2f5f03f852f4,
-        type: 2}
-      propertyPath: costs.Array.data[1]
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70bfb291555cead4298d2f5f03f852f4, type: 2}
   m_IsPrefabAsset: 0

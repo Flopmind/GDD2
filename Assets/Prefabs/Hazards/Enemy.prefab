@@ -120,6 +120,10 @@ MonoBehaviour:
   - 210
   pursuitMag: 10
   timer: 10
+  materials:
+  - {fileID: 2100000, guid: c56cdd1f5229a724db83999236cf77ed, type: 2}
+  - {fileID: 2100000, guid: e937fd3a58a6a934cb46d2723f768d6f, type: 2}
+  - {fileID: 2100000, guid: a239f600e3b7771469e5a5b52110cd42, type: 2}
   moveMag: 0
 --- !u!136 &136773671675135862
 CapsuleCollider:

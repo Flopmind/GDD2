@@ -5,6 +5,7 @@ public class EnemyScript : Hazard {
     public float[] moveMags;//150
     public float pursuitMag;
     public float timer;
+    public Material[] materials;
 
     [SerializeField]
     private float moveMag;
@@ -96,12 +97,11 @@ public class EnemyScript : Hazard {
 
     public override void ApplySpend(int cost)
     {
-        print("meh");
         for (int i = 0; i < costs.Length; i++)
         {
             if (cost == costs[i])
             {
-                print(cost);
+                GetComponent<MeshRenderer>().material = materials[i];
                 moveMag = moveMags[i];
                 if (i == costs.Length - 1)
                 {
